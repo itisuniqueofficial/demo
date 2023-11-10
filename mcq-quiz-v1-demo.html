@@ -1,0 +1,65 @@
+<style>
+  .question {
+    background-color: #ffff66;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  .explanation {
+    background-color: #66ffff;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+</style>
+
+<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/css@main/mcq-quiz.css">
+
+<div class="quiz-container">
+    <div class="question" id="question1">Question 1: What is 2 + 2?</div>
+    <div class="option" data-question="question1" data-correct="true">A) 4</div>
+    <div class="option" data-question="question1" data-correct="false">B) 5</div>
+    <div class="option" data-question="question1" data-correct="false">C) 6</div>
+    <div class="option" data-question="question1" data-correct="false">D) 7</div>
+    <div class="explanation" data-question="question1">Explanation: 2 + 2 equals 4.</div>
+
+    <div class="question" id="question2">Question 2: What is the capital of France?</div>
+    <div class="option" data-question="question2" data-correct="true">A) Paris</div>
+    <div class="option" data-question="question2" data-correct="false">B) London</div>
+    <div class="option" data-question="question2" data-correct="false">C) Berlin</div>
+    <div class="option" data-question="question2" data-correct="false">D) Madrid</div>
+    <div class="explanation" data-question="question2">Explanation: The capital of France is Paris.</div>
+
+    <div class="question" id="question3">Question 3: What is the largest planet in our solar system?</div>
+    <div class="option" data-question="question3" data-correct="true">A) Jupiter</div>
+    <div class="option" data-question="question3" data-correct="false">B) Earth</div>
+    <div class="option" data-question="question3" data-correct="false">C) Mars</div>
+    <div class="option" data-question="question3" data-correct="false">D) Venus</div>
+    <div class="explanation" data-question="question3">Explanation: Jupiter is the largest planet in our solar system.</div>
+
+    <div class="question" id="question4">Question 4: Which gas do plants absorb from the atmosphere?</div>
+    <div class="option" data-question="question4" data-correct="true">A) Carbon dioxide</div>
+    <div class="option" data-question="question4" data-correct="false">B) Oxygen</div>
+    <div class="option" data-question="question4" data-correct="false">C) Nitrogen</div>
+    <div class="option" data-question="question4" data-correct="false">D) Hydrogen</div>
+    <div class="explanation" data-question="question4">Explanation: Plants absorb carbon dioxide from the atmosphere.</div>
+
+    <div class="question" id="question5">Question 5: What is the largest mammal in the world?</div>
+    <div class="option" data-question="question5" data-correct="true">A) Blue whale</div>
+    <div class="option" data-question="question5" data-correct="false">B) African elephant</div>
+    <div class="option" data-question="question5" data-correct="false">C) Giraffe</div>
+    <div class="option" data-question="question5" data-correct="false">D) Lion</div>
+    <div class="explanation" data-question="question5">Explanation: The blue whale is the largest mammal in the world.</div>
+
+    <div class="report-card">
+        <h2>Report Card</h2>
+        <p>Total Questions Attempted: <span id="attemptedCount">0</span></p>
+        <p>Correct Answers: <span id="correctCount">0</span></p>
+        <p>Wrong Answers: <span id="wrongCount">0</span></p>
+        <p>Percentage: <span id="percentage">0%</span></p>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/gh/itisuniqueofficial/js@main/mcq-quiz.js"></script>
