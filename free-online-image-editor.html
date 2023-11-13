@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+
+<head>
+    <!--
+Apa yang anda cari disini mastah ku? mwehehehe
+Contact : admin@prinsh.com
+-->
+    <meta charset="UTF-8" />
+    <meta name="google" content="notranslate" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no" />
+    <title>PicSay - Free Online Image Editor. Edit photo quick & easy</title>
+    <meta name="author" content="Nathan Prinsley" />
+    <meta name="description" content="Quick, Simple & Powerfull Photo Editor: Crop, Cut, Resize, Draw, Text, Stickers, Shapes, Filter, Frame, Corner, Object, Etc..">
+    <meta name="keywords" content="picsay photo editor, picsay image editor, online picsay pro, online image editor, online photo editor, nathan prinsley, prinsh.com, picsay.prinsh.com, picsay prinsh">
+    <meta property="og:title" content="PicSay - Free Online Image Editor. Edit photo quick & easy" />
+    <meta property="og:url" content="https://picsay.prinsh.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Picsay Online Image Editor" />
+    <meta property="og:image" content="https://picsay.prinsh.com/thumbnail.jpg" />
+    <link rel="apple-touch-icon" sizes="57x57" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/android-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="https://cdn.jsdelivr.net/gh/itisuniqueofficial/icon@main/favicon-16x16.png" />
+    <link rel="cannonical" href="https://picsay.prinsh.com/" />
+    <style>
+        html,
+        body,
+        #editor-container {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        }
+
+        /* nonaktif tu tombol exit */
+        button.focus-visible\:ring.bg-transparent.border-transparent.hover\:bg-hover.disabled\:text-disabled.disabled\:bg-transparent.align-middle.whitespace-nowrap.inline-flex.items-center.transition-button.duration-200.select-none.appearance-none.no-underline.outline-none.disabled\:pointer-events-none.disabled\:cursor-default.rounded-full.justify-center.text-sm.h-36.w-36.ml-10 {
+            display: none;
+        }
+
+        /* dpe background foto */
+        main.relative.flex-auto.my-20.overflow-hidden.outline-none {
+            background-image: url(https://picsay.prinsh.com/NathanPrinsley1/assets/images/empty-canvas-bg.png);
+        }
+
+        @media screen and (max-width:520px) {
+            .rounded-full.inline-flex.isolate.mb-10.w-full.justify-center {
+                overflow: auto;
+                justify-content: left;
+            }
+        }
+    </style>
+</head>
+
+<body onbeforeunload="return NathanPrinsley()">
+    <noscript><b>JavaScript</b> is Required to use this Web</noscript>
+    <div id="editor-container"></div>
+    <script src="https://picsay.prinsh.com/NathanPrinsley1/dist/pixie.umd.js?ver=22"></script>
+    <script>
+        const pixie = new Pixie({
+            selector: "#editor-container",
+            baseUrl: 'https://picsay.prinsh.com/NathanPrinsley1/assets',
+            tools: {
+                export: {
+                    defaultFormat: 'png', //svg, png, jpeg ato json
+                    defaultName: 'myphoto', //nama default for download dpe foto
+                    defaultQuality: 1, //cuman for ekstensi jpeg.. value 0.0 sampe 1.0
+                }
+            },
+            ui: {
+                menubar: {
+                    items: [{
+                            type: 'image',
+                            src: "data:image/svg+xml,%0A%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' zoomAndPan='magnify' viewBox='0 0 60 60' height='80' preserveAspectRatio='xMidYMid meet'%3E%3Cstyle%3E%3C!%5BCDATA%5B.B%7Bclip-rule:nonzero%7D%5D%5D%3E%3C/style%3E%3Cdefs%3E%3ClinearGradient id='NathanPrinsley' gradientTransform='rotate(90)'%3E%3Cstop offset='0' stop-color='rgb(59.6078431372549%25, 0%25, 100%25)'/%3E%3Cstop offset='.2' stop-color='rgb(89.01960784313725%25, 0%25, 100%25)'/%3E%3Cstop offset='.4' stop-color='rgb(89.80392156862746%25, 55.294117647058826%25, 5.490196078431373%25)'/%3E%3Cstop offset='.6' stop-color='rgb(45.490196078431374%25, 75.68627450980392%25, 30.19607843137255%25)'/%3E%3Cstop offset='1' stop-color='rgb(7.8431372549019605%25, 61.1764705882353%25, 87.45098039215686%25)'/%3E%3C/linearGradient%3E%3CclipPath id='B'%3E%3Cpath d='M.121.129h59.746v59.742H.121zm0 0' class='B'/%3E%3C/clipPath%3E%3CclipPath id='C'%3E%3Cpath d='M29.996.129C13.496.129.121 13.504.121 30s13.375 29.871 29.875 29.871S59.867 46.496 59.867 30 46.492.129 29.996.129' class='B'/%3E%3C/clipPath%3E%3CclipPath id='D'%3E%3Cpath d='M2.32 2.277h55.441v55.445H2.32zm0 0' class='B'/%3E%3C/clipPath%3E%3CclipPath id='E'%3E%3Cpath d='M30.039 2.277C14.73 2.277 2.32 14.691 2.32 30s12.41 27.723 27.719 27.723S57.762 45.309 57.762 30 45.352 2.277 30.039 2.277' class='B'/%3E%3C/clipPath%3E%3CclipPath id='F'%3E%3Cpath d='M5.309 10.48h49.383V49.52H5.309zm0 0' class='B'/%3E%3C/clipPath%3E%3CclipPath id='G'%3E%3Cpath d='M30 10.48C16.363 10.48 5.309 19.219 5.309 30S16.363 49.52 30 49.52 54.691 40.781 54.691 30 43.637 10.48 30 10.48' class='B'/%3E%3C/clipPath%3E%3CclipPath id='H'%3E%3Cpath d='M35.309 23.383h2.629v21.5h-2.629zm0 0' class='B'/%3E%3C/clipPath%3E%3CclipPath id='I'%3E%3Cpath d='M35.309 19.117h4.898v3.219h-4.898zm0 0' class='B'/%3E%3C/clipPath%3E%3CclipPath id='J'%3E%3Cpath d='M14.543 19.117h5.266v28.895h-5.266zm0 0' class='B'/%3E%3C/clipPath%3E%3CclipPath id='K'%3E%3Cpath d='M30.039 19.117h2.664v25.539h-2.664zm0 0' class='B'/%3E%3C/clipPath%3E%3CclipPath id='L'%3E%3Cpath d='M32.688 19.117h2.664v25.539h-2.664zm0 0' class='B'/%3E%3C/clipPath%3E%3C/defs%3E%3Cg clip-path='url(%23B)'%3E%3Cg clip-path='url(%23C)'%3E%3Cpath fill='url(%23NathanPrinsley)' d='M.121.129h59.746v59.742H.121zm0 0'/%3E%3C/g%3E%3C/g%3E%3Cg clip-path='url(%23D)'%3E%3Cg clip-path='url(%23E)'%3E%3Cpath d='M2.32 2.277h55.441v55.445H2.32zm0 0'/%3E%3C/g%3E%3C/g%3E%3Cg clip-path='url(%23F)'%3E%3Cg clip-path='url(%23G)'%3E%3Cpath fill='%23fff' d='M5.309 10.48h49.383V49.52H5.309zm0 0'/%3E%3C/g%3E%3C/g%3E%3Cpath d='M35.291 35.65v9h-5.25V19.119h9.953c1.914 0 3.602.355 5.063 1.063 1.457.699 2.578 1.695 3.359 2.984s1.172 2.762 1.172 4.406c0 2.5-.859 4.477-2.578 5.922-1.711 1.438-4.074 2.156-7.094 2.156zm0-4.25h4.703c1.395 0 2.457-.328 3.188-.984s1.094-1.594 1.094-2.812c0-1.25-.371-2.258-1.109-3.031-.73-.77-1.746-1.164-3.047-1.187h-4.828zm0 0' fill='red'/%3E%3Cpath d='M35.295 44.65h-5.25l-10.25-16.797V44.65h-5.25V19.119h5.25l10.266 16.828V19.119h5.234zm0 0'/%3E%3Cg clip-path='url(%23H)'%3E%3Cpath fill='%23fff' d='M35.309 23.383h2.535v21.531h-2.535zm0 0'/%3E%3C/g%3E%3Cg clip-path='url(%23I)'%3E%3Cpath fill='red' d='M35.309 19.117h4.855v3.164h-4.855zm0 0'/%3E%3C/g%3E%3Cg clip-path='url(%23J)'%3E%3Cpath d='M14.543 19.117h5.277v28.918h-5.277zm0 0'/%3E%3C/g%3E%3Cg clip-path='url(%23K)'%3E%3Cpath fill='red' d='M30.039 19.117h2.746V44.66h-2.746zm0 0'/%3E%3C/g%3E%3Cg clip-path='url(%23L)'%3E%3Cpath d='M32.688 19.117h2.746V44.66h-2.746zm0 0'/%3E%3C/g%3E%3C/svg%3E",
+                        },
+                        /*          {
+                                    type: 'button',
+                                    icon: [
+                                      {
+                                        tag: 'path',
+                                        attr: {
+                                          d: 'm11.99 18.54-7.37-5.73L3 14.07l9 7 9-7-1.63-1.27zM12 16l7.36-5.73L21 9l-9-7-9 7 1.63 1.27L12 16zm0-11.47L17.74 9 12 13.47 6.26 9 12 4.53z',
+                                        },
+                                      },
+                                    ],
+                                    align: 'right',
+                                    position: 0,
+                                    action: editor => {
+                                    editor.togglePanel('objects');
+                                    },
+                                  }, */
+                        {
+                            type: 'button',
+                            icon: [{
+                                tag: 'path',
+                                attr: {
+                                    d: 'M18 20H4V6h9V4H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2v-9h-2v9zm-7.79-3.17-1.96-2.36L5.5 18h11l-3.54-4.71zM20 4V1h-2v3h-3c.01.01 0 2 0 2h3v2.99c.01.01 2 0 2 0V6h3V4h-3z',
+                                },
+                            }, ],
+                            align: 'left',
+                            buttonVariant: 'outline',
+                            menuItems: [{
+                                    action: editor => {
+                                        editor.tools.import.uploadAndAddImage();
+                                    },
+                                    label: 'Add Overlay Image',
+                                },
+                                {
+                                    action: editor => {
+                                        editor.tools.import.uploadAndReplaceMainImage();
+                                    },
+                                    label: 'Replace Image',
+                                },
+                                {
+                                    action: editor => {
+                                        editor.tools.import.uploadAndOpenStateFile();
+                                    },
+                                    label: 'Editor Project File',
+                                },
+                            ],
+                        },
+                    ],
+                },
+            },
+        });
+        window.pixie = pixie;
+
+        function NathanPrinsley() {
+            return "Hello World";
+        }
+    </script>
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"8248f16f0e506919","r":1,"version":"2023.10.0","token":"af76a0f2ef2c4842bd3334f3c2936a9f"}' crossorigin="anonymous"></script>
+</body>
+
+</html>
