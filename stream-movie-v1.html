@@ -1,0 +1,81 @@
+<style>
+    .player-container {
+        text-align: center;
+        width: 100%;
+        max-width: 100%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+    }
+
+    video {
+        width: 100%;
+        max-height: 400px;
+        margin-bottom: 20px;
+        border-radius: 5px;
+    }
+
+    button {
+        padding: 12px 24px;
+        font-size: 18px;
+        margin: 0 10px;
+        background-color: #5cb85c;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #4cae4c;
+    }
+
+    input[type="range"] {
+        width: 80%;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="player-container">
+    <h2>Video Player</h2>
+
+    <video id="video-player" controls>
+        <source src="https://drive.google.com/uc?export=download&id=1R6ztMa4j03GnsDCCaaGE0lLRnnS4s5qK" type="video/mp4">
+        <source src="sample.webm" type="video/webm">
+        Your browser does not support the video tag.
+    </video>
+
+    <div>
+        <button id="play-pause-btn" onclick="togglePlayPause()">Play/Pause</button>
+        <button onclick="stopVideo()">Stop</button>
+    </div>
+
+    <input type="range" id="volume-control" min="0" max="1" step="0.1" value="1" oninput="updateVolume()">
+</div>
+
+<script>
+    var videoPlayer = document.getElementById('video-player');
+    var playPauseButton = document.getElementById('play-pause-btn');
+    var volumeControl = document.getElementById('volume-control');
+
+    function togglePlayPause() {
+        if (videoPlayer.paused) {
+            videoPlayer.play();
+            playPauseButton.textContent = 'Pause';
+        } else {
+            videoPlayer.pause();
+            playPauseButton.textContent = 'Play';
+        }
+    }
+
+    function stopVideo() {
+        videoPlayer.pause();
+        videoPlayer.currentTime = 0;
+        playPauseButton.textContent = 'Play';
+    }
+
+    function updateVolume() {
+        videoPlayer.volume = volumeControl.value;
+    }
+</script>
