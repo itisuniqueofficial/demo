@@ -1,0 +1,168 @@
+<style>
+  body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: radial-gradient(circle at top, #20232a 0%, #15181e 100%);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  }
+  #particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  }
+  #diwali-card {
+  max-width: 600px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: fadeIn 1s forwards;
+  }
+  @keyframes fadeIn {
+  to {
+  opacity: 1;
+  transform: translateY(0);
+  }
+  }
+  h1 {
+  color: #ff9900;
+  margin-bottom: 15px;
+  }
+  p {
+  color: #ccc;
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 25px;
+  }
+</style>
+<div id="particles-js"></div>
+<div id="diwali-card">
+  <img src="https://cdn.jsdelivr.net/gh/itisuniqueofficial/itisuniqueofficial@main/It%20Is%20Unique%20Official.webp" alt="Jaydatt Khodave">
+  <h1>Hi, From It Is Unique Official & Jaydatt Khodave</h1>
+  <p>Website is Hacked By Jaydatt Khodave & Our Team It Is Unique Official.</p>
+</div>
+<script src='https://cdn.jsdelivr.net/gh/itisuniqueofficial/js@main/particles.min.js'></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      particlesJS('particles-js', {
+          particles: {
+              number: {
+                  value: 80,
+                  density: {
+                      enable: true,
+                      value_area: 800
+                  }
+              },
+              color: {
+                  value: '#ffffff'
+              },
+              shape: {
+                  type: 'circle',
+                  stroke: {
+                      width: 0,
+                      color: '#000000'
+                  },
+                  polygon: {
+                      nb_sides: 5
+                  },
+                  image: {
+                      src: 'img/github.svg',
+                      width: 100,
+                      height: 100
+                  }
+              },
+              opacity: {
+                  value: 0.5,
+                  random: false,
+                  anim: {
+                      enable: false,
+                      speed: 1,
+                      opacity_min: 0.1,
+                      sync: false
+                  }
+              },
+              size: {
+                  value: 3,
+                  random: true,
+                  anim: {
+                      enable: false,
+                      speed: 40,
+                      size_min: 0.1,
+                      sync: false
+                  }
+              },
+              line_linked: {
+                  enable: true,
+                  distance: 150,
+                  color: '#ffffff',
+                  opacity: 0.4,
+                  width: 1
+              },
+              move: {
+                  enable: true,
+                  speed: 6,
+                  direction: 'none',
+                  random: false,
+                  straight: false,
+                  out_mode: 'out',
+                  bounce: false,
+                  attract: {
+                      enable: false,
+                      rotateX: 600,
+                      rotateY: 1200
+                  }
+              }
+          },
+          interactivity: {
+              detect_on: 'canvas',
+              events: {
+                  onhover: {
+                      enable: true,
+                      mode: 'repulse'
+                  },
+                  onclick: {
+                      enable: true,
+                      mode: 'push'
+                  },
+                  resize: true
+              },
+              modes: {
+                  grab: {
+                      distance: 400,
+                      line_linked: {
+                          opacity: 1
+                      }
+                  },
+                  bubble: {
+                      distance: 400,
+                      size: 40,
+                      duration: 2,
+                      opacity: 8,
+                      speed: 3
+                  },
+                  repulse: {
+                      distance: 200,
+                      duration: 0.4
+                  },
+                  push: {
+                      particles_nb: 4
+                  },
+                  remove: {
+                      particles_nb: 2
+                  }
+              }
+          },
+          retina_detect: true
+      });
+  });
+</script>
