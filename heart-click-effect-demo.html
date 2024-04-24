@@ -1,129 +1,120 @@
-<!--Heart Click Effect By www.itisuniqueblog.com-->
-
 <script>
-    (function(window, document) {
-        var hearts = [];
+  /*
+   * All rights reserved by itisuniqueblog.com
+   * LICENSE: MIT License Copyright (c) 2024 It Is Unique Official
+   */
+  (function (window, document) {
+    var hearts = [];
 
-        function init() {
-            addStyles('.heart {' +
-                'width: 10px;' +
-                'height: 10px;' +
-                'position: fixed;' +
-                'background: #f00;' +
-                'transform: rotate(45deg);' +
-                '-webkit-transform: rotate(45deg);' +
-                '-moz-transform: rotate(45deg);' +
-                '}' +
-                '.heart:after, .heart:before {' +
-                'content: "";' +
-                'width: inherit;' +
-                'height: inherit;' +
-                'background: inherit;' +
-                'border-radius: 50%;' +
-                '-webkit-border-radius: 50%;' +
-                '-moz-border-radius: 50%;' +
-                'position: fixed;' +
-                '}' +
-                '.heart:after {' +
-                'top: -5px;' +
-                '}' +
-                '.heart:before {' +
-                'left: -5px;' +
-                '}');
-            addClickListener();
-            animate();
+    function init() {
+      addStyles('.heart {' +
+        'width: 10px;' +
+        'height: 10px;' +
+        'position: fixed;' +
+        'background: #f00;' +
+        'transform: rotate(45deg);' +
+        '-webkit-transform: rotate(45deg);' +
+        '-moz-transform: rotate(45deg);' +
+        '}' +
+        '.heart:after, .heart:before {' +
+        'content: "";' +
+        'width: inherit;' +
+        'height: inherit;' +
+        'background: inherit;' +
+        'border-radius: 50%;' +
+        '-webkit-border-radius: 50%;' +
+        '-moz-border-radius: 50%;' +
+        'position: fixed;' +
+        '}' +
+        '.heart:after {' +
+        'top: -5px;' +
+        '}' +
+        '.heart:before {' +
+        'left: -5px;' +
+        '}');
+      addClickListener();
+      animate();
+    }
+
+    function animate() {
+      for (var i = hearts.length - 1; i >= 0; i--) {
+        var heart = hearts[i];
+        heart.y--;
+        heart.scale = Math.abs(Math.sin(Date.now() * 0.005)) + 0.5; // Pulse effect
+        heart.alpha -= 0.01;
+
+        if (heart.alpha <= 0) {
+          document.body.removeChild(heart.el);
+          hearts.splice(i, 1);
+        } else {
+          heart.el.style.cssText =
+            'left: ' + heart.x + 'px;' +
+            'top: ' + heart.y + 'px;' +
+            'opacity: ' + heart.alpha + ';' +
+            'transform: scale(' + heart.scale + ') rotate(45deg);' +
+            'background: ' + heart.color + ';' +
+            'z-index: 99999';
         }
+      }
+      requestAnimationFrame(animate);
+    }
 
-        function animate() {
-            for (var i = hearts.length - 1; i >= 0; i--) {
-                var heart = hearts[i];
-                heart.y--;
-                heart.scale = Math.abs(Math.sin(Date.now() * 0.005)) + 0.5; // Pulse effect
-                heart.alpha -= 0.01;
+    function addClickListener() {
+      var oldOnClick = window.onclick;
+      window.onclick = function (event) {
+        oldOnClick && oldOnClick();
+        createHeart(event);
+      }
+    }
 
-                if (heart.alpha <= 0) {
-                    document.body.removeChild(heart.el);
-                    hearts.splice(i, 1);
-                } else {
-                    heart.el.style.cssText =
-                        'left: ' + heart.x + 'px;' +
-                        'top: ' + heart.y + 'px;' +
-                        'opacity: ' + heart.alpha + ';' +
-                        'transform: scale(' + heart.scale + ') rotate(45deg);' +
-                        'background: ' + heart.color + ';' +
-                        'z-index: 99999';
-                }
-            }
-            requestAnimationFrame(animate);
-        }
+    function createHeart(event) {
+      var heart = document.createElement('div');
+      heart.className = 'heart';
+      var newHeart = {
+        el: heart,
+        x: event.clientX - 5,
+        y: event.clientY - 5,
+        scale: 1,
+        alpha: 1,
+        color: getRandomColor()
+      };
+      hearts.push(newHeart);
+      document.body.appendChild(heart);
+    }
 
-        function addClickListener() {
-            var oldOnClick = window.onclick;
-            window.onclick = function(event) {
-                oldOnClick && oldOnClick();
-                createHeart(event);
-            }
-        }
+    function addStyles(styles) {
+      var style = document.createElement('style');
+      style.type = 'text/css';
+      style.appendChild(document.createTextNode(styles));
+      document.head.appendChild(style);
+    }
 
-        function createHeart(event) {
-            var heart = document.createElement('div');
-            heart.className = 'heart';
-            var newHeart = {
-                el: heart,
-                x: event.clientX - 5,
-                y: event.clientY - 5,
-                scale: 1,
-                alpha: 1,
-                color: getRandomColor()
-            };
-            hearts.push(newHeart);
-            document.body.appendChild(heart);
-        }
+    function getRandomColor() {
+      return 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
+    }
 
-        function addStyles(styles) {
-            var style = document.createElement('style');
-            style.type = 'text/css';
-            style.appendChild(document.createTextNode(styles));
-            document.head.appendChild(style);
-        }
+    window.requestAnimationFrame = (function () {
+      return window.requestAnimationFrame ||
+        window.webkitRequestAnimationFrame ||
+        window.mozRequestAnimationFrame ||
+        window.oRequestAnimationFrame ||
+        window.msRequestAnimationFrame ||
+        function (callback) {
+          setTimeout(callback, 1000 / 60);
+        };
+    })();
 
-        function getRandomColor() {
-            return 'rgb(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ')';
-        }
-
-        window.requestAnimationFrame = (function() {
-            return window.requestAnimationFrame ||
-                window.webkitRequestAnimationFrame ||
-                window.mozRequestAnimationFrame ||
-                window.oRequestAnimationFrame ||
-                window.msRequestAnimationFrame ||
-                function(callback) {
-                    setTimeout(callback, 1000 / 60);
-                };
-        })();
-
-        init();
-    })(window, document);
+    init();
+  })(window, document); 
 </script>
-
 <h2>A Tale of Love</h2>
-
 <h3>Chapter 1: The First Meeting</h3>
-
 <p>In a bustling cafe on a rainy afternoon, Sarah's and Michael's eyes met for the first time. The world around them seemed to fade as they exchanged a smile that spoke volumes.</p>
-
 <h3>Chapter 2: Blossoming Feelings</h3>
-
 <p>As weeks turned into months, their casual conversations turned into deep discussions about life, dreams, and everything in between. Their hearts connected, and an unspoken bond started to form.</p>
-
 <h3>Chapter 3: Confessions and Laughter</h3>
-
 <p>One evening, under a sky painted with shades of pink and orange, Michael confessed his feelings to Sarah. Her heart raced, and with a shy smile, she admitted that she had fallen for him too. Their laughter filled the air, creating memories that would last a lifetime.</p>
-
 <h3>Chapter 4: Overcoming Challenges</h3>
-
 <p>Their journey wasn't without challenges. They faced distance, misunderstandings, and the tests that life throws at every relationship. But each trial only made their love stronger, teaching them the importance of patience and understanding.</p>
-
 <h3>Chapter 5: Forever Together</h3>
-
 <p>On a serene beach, as the sun dipped below the horizon, Michael got down on one knee and asked Sarah to be his forever. Tears of joy glistened in her eyes as she said yes, sealing their commitment to a lifetime of love and togetherness.</p>
