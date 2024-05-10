@@ -43,6 +43,7 @@ main {
     border: 1px solid rgba(255, 255, 255, 0.18);
     width: 90%;
     max-width: 600px;
+    margin: 10px;
 }
 
 #countdown {
