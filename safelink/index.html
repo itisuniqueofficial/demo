@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>SafeLink Generator</title>
-    <link rel="stylesheet" href="css/index.css">
-    <script src="js/safelink.js"></script>
+    <link rel="stylesheet" href="css/index.css"/>
+    <script src="js/index.js"></script>
 </head>
 
 <body>
@@ -17,7 +17,10 @@
         <p>Enter the URL you want to protect:</p>
         <input type="text" id="inputURL" placeholder="Enter URL...">
         <button onclick="generateSafeLink()">Generate SafeLink</button>
-        <p id="safelink"></p>
+        <div id="safelink-container">
+            <p id="safelink-label">Generated SafeLink:</p>
+            <p id="safelink"></p>
+        </div>
     </div>
     <h2>SafeLink Policy</h2>
     <p>Welcome to It Is Unique Blog - Official,</p>
