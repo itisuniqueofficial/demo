@@ -91,3 +91,31 @@ footer {
         font-size: 1.5em;
     }
 }
+
+/* Existing CSS */
+
+#safelink {
+    margin-top: 20px;
+    font-size: 16px;
+}
+
+/* New CSS for styling the generated SafeLink */
+
+#safelink-container {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f8d7da; /* Light red background */
+    border: 1px solid #f5c6cb; /* Red border */
+    border-radius: 3px;
+}
+
+#safelink-label {
+    font-weight: bold;
+    color: #721c24; /* Dark red text color */
+}
+
+#generated-link {
+    color: #721c24; /* Dark red text color */
+    font-size: 18px;
+    word-wrap: break-word; /* Wrap long links */
+}
