@@ -10,8 +10,7 @@ body {
     text-align: center;
 }
 
-header,
-footer {
+header, footer {
     padding: 20px 10%;
     background-color: #022c43;
     opacity: 0.95;
@@ -35,6 +34,10 @@ main {
 }
 
 .redirect-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     border-radius: 15px;
     background-color: rgba(0, 0, 0, 0.6);
@@ -98,8 +101,7 @@ main {
     }
 }
 
-p,
-h2 {
+p, h2 {
     margin: 20px 0;
 }
 
@@ -108,8 +110,20 @@ a {
     transition: color 0.3s ease-in-out;
 }
 
-a:hover,
-a:focus {
+a:hover, a:focus {
     color: #cccccc;
     text-decoration: none;
+}
+
+.go-button {
+    padding: 10px 20px;
+    background-color: #009ffd;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-top: 20px;
+    display: none; /* Initially hidden */
+    align-self: center; /* Center button in the flex container */
 }
