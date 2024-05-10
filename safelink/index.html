@@ -4,52 +4,27 @@
 <head>
     <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>SafeLink Generator</title>
-    <link rel="stylesheet" href="css/index.css"/>
-    <script src="js/index.js"></script>
+    <title>Redirecting...</title>
+    <link rel="stylesheet" href="css/redirect.css"/>
+    <script src="js/redirect.js" defer></script>
 </head>
 
 <body>
     <header>
-        <h1>SafeLink Generator</h1>
+        <h1>Redirect</h1>
     </header>
-    <div class="content">
-        <p>Enter the URL you want to protect:</p>
-        <input type="text" id="inputURL" placeholder="Enter URL...">
-        <button onclick="generateSafeLink()">Generate SafeLink</button>
-        <div id="safelink-container">
-            <p id="safelink-label">Generated SafeLink:</p>
-            <p id="safelink"></p>
+    <main>
+        <div class="redirect-container">
+            <h2>We're taking you to our new site!</h2>
+            <p>Redirecting in <span id="countdown">15</span> seconds. Thank you for your patience.</p>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+            <button id="goButton" class="go-button">Go to Site</button>
         </div>
-    </div>
-    <h2>SafeLink Policy</h2>
-    <p>Welcome to It Is Unique Blog - Official,</p>
-    <p>Thank you for visiting It Is Unique Blog - Official, where we strive to provide a safe and enriching browsing
-        experience for our users. Our SafeLink Policy outlines our approach to linking to external websites ("SafeLinks")
-        and how we ensure they meet our standards of relevance, reliability, and safety.</p>
-    <h3>Our Commitment to SafeLinks</h3>
-    <p>At It Is Unique Blog - Official, we carefully select SafeLinks to enhance your understanding of the topics we cover.
-        Each SafeLink is chosen based on its relevance to our content, reliability as a source of information, and safety
-        for our users.</p>
-    <h3>Disclaimer and Caution</h3>
-    <p>While we make every effort to vet SafeLinks, we cannot guarantee the accuracy or safety of external websites. Users
-        should exercise caution and review the privacy policies and terms of use of external websites before clicking on
-        SafeLinks.</p>
-    <h3>Reporting Unsafe SafeLinks</h3>
-    <p>If you encounter a SafeLink on our blog that you believe does not meet our criteria or poses a risk, please contact
-        us immediately. We will investigate the issue and take appropriate action, including removing the SafeLink if
-        necessary.</p>
-    <h3>Stay Informed</h3>
-    <p>We may update our SafeLink Policy from time to time, so we encourage you to check this page regularly for any
-        changes.</p>
-    <h3>Contact Us</h3>
-    <p>If you have any questions or concerns about our SafeLink Policy, please don't hesitate to reach out to us at <a
-            href="mailto:itisuniqueofficial@gmail.com">itisuniqueofficial@gmail.com</a>.</p>
-    <p>Thank you for your trust in It Is Unique Blog - Official. We're committed to providing a safe and valuable browsing
-        experience for all our users.</p>
-    </div>
+    </main>
     <footer>
-        <p>&copy; 2024 It Is Unique Official. All Rights Reserved.</p>
+        <p>Connect with us: <a href="https://www.instagram.com/itisuniqueofficial" target="_blank">Instagram</a> | <a href="https://t.me/itisuniquebloggroup" target="_blank">Telegram</a></p>
     </footer>
 </body>
 
