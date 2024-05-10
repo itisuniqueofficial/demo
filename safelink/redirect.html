@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Redirecting...</title>
+    <link rel="stylesheet" href="css/redirect.css"/>
     <script src="js/redirect.js"></script>
-    <style>
-        #countdown {
-            font-size: 24px;
-            font-weight: bold;
-            color: red;
-        }
-    </style>
 </head>
-
 <body>
-    <p>Redirecting in <span id="countdown">15</span> seconds...</p>
+    <header>
+        <h1>Redirect</h1>
+    </header>
+    <main>
+        <div class="redirect-container">
+            <h2>We're redirecting you to the original destination!</h2>
+            <p>Redirecting in <span id="countdown">15</span> seconds. Thank you for your patience.</p>
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Connect with us: <a href="https://www.instagram.com/itisuniqueofficial" target="_blank">Instagram</a> | <a href="https://t.me/itisuniqueblog" target="_blank">Telegram</a></p>
+    </footer>
 </body>
-
 </html>
