@@ -3,7 +3,7 @@ window.onload = function () {
     var encodedURL = urlParams.get('url');
     var originalURL = atob(encodedURL); // Decode Base64 URL
 
-    var countdown = 15; // Countdown time in seconds
+    var countdown = 30; // Countdown time in seconds
 
     var countdownInterval = setInterval(function () {
         document.getElementById("countdown").textContent = countdown;
