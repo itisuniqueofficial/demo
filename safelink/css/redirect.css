@@ -70,8 +70,8 @@ main {
     width: 0%;
     background: #FFD700;
     border-radius: 10px;
-    transition: width 15s linear;
-    animation: fillProgress 15s forwards;
+    transition: width 30s linear;
+    animation: fillProgress 30s forwards;
 }
 
 @keyframes pulse {
