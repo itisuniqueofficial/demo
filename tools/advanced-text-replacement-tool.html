@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ultra Advanced Text Replacement Tool</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f3f3f3;
+    }
+
+    #container {
+        max-width: 800px;
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    input[type="file"] {
+        display: none;
+    }
+
+    label.upload-label {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    label.upload-label:hover {
+        background-color: #45a049;
+    }
+
+    textarea {
+        width: 100%;
+        height: 100px;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        resize: none;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #0056b3;
+    }
+
+    #output {
+        margin-top: 20px;
+        white-space: pre-wrap;
+    }
+
+    .highlight {
+        background-color: yellow;
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <h1>Ultra Advanced Text Replacement Tool</h1>
+    <input type="file" id="fileInput" multiple onchange="displayFileContent()">
+    <label for="fileInput" class="upload-label">Upload File(s)</label><br>
+    <textarea id="fileContent" placeholder="Uploaded file content will be displayed here..." readonly></textarea><br>
+    <textarea id="originalText" placeholder="Enter your original text..."></textarea><br>
+    <textarea id="replacementText" placeholder="Enter the text to replace with..." oninput="previewReplacement()"></textarea><br>
+    <input type="checkbox" id="caseInsensitive"> <label for="caseInsensitive">Case Insensitive Replacement</label><br>
+    <input type="checkbox" id="regexSupport"> <label for="regexSupport">Enable Regular Expression Support</label><br>
+    <select id="replacementBehavior">
+        <option value="all">Replace All Occurrences</option>
+        <option value="first">Replace First Occurrence Only</option>
+    </select><br>
+    <button onclick="replaceText()">Replace Text</button>
+    <button onclick="undo()">Undo</button>
+    <button onclick="redo()">Redo</button>
+    <button onclick="downloadModifiedFile()">Download Modified File</button>
+    <div id="output"></div>
+    <div id="wordCount"></div>
+</div>
+
+<script>
+    let history = [];
+    let currentIndex = -1;
+
+    function displayFileContent() {
+        const fileInput = document.getElementById('fileInput');
+        const fileContentTextArea = document.getElementById('fileContent');
+        fileContentTextArea.value = ""; // Clear existing content
+        const files = fileInput.files;
+        for (let i = 0; i < files.length; i++) {
+            const reader = new FileReader();
+            reader.onload = function(event) {
+                const content = event.target.result;
+                fileContentTextArea.value += `File ${i + 1} Content:\n${content}\n\n`;
+            };
+            reader.readAsText(files[i]);
+        }
+    }
+
+    function previewReplacement() {
+        const fileContent = document.getElementById('fileContent').value;
+        const originalText = document.getElementById('originalText').value;
+        const replacementText = document.getElementById('replacementText').value;
+        const caseInsensitive = document.getElementById('caseInsensitive').checked;
+        const regexSupport = document.getElementById('regexSupport').checked;
+
+        const flags = caseInsensitive ? 'gi' : 'g';
+        const regex = regexSupport ? new RegExp(originalText, flags) : escapeRegExp(originalText);
+        const replacedContent = fileContent.replace(regex, replacementText);
+
+        const outputDiv = document.getElementById('output');
+        outputDiv.innerHTML = replacedContent.replace(new RegExp(escapeRegExp(replacementText), flags), '<span class="highlight">$&</span>');
+    }
+
+    function replaceText() {
+        const fileContent = document.getElementById('fileContent').value;
+        const originalText = document.getElementById('originalText').value;
+        const replacementText = document.getElementById('replacementText').value;
+        const caseInsensitive = document.getElementById('caseInsensitive').checked;
+        const regexSupport = document.getElementById('regexSupport').checked;
+        const replacementBehavior = document.getElementById('replacementBehavior').value;
+
+        const flags = caseInsensitive ? 'gi' : 'g';
+        const regex = regexSupport ? new RegExp(originalText, flags) : escapeRegExp(originalText);
+        let replacedContent;
+
+        if (replacementBehavior === 'all') {
+            replacedContent = fileContent.replace(regex, replacementText);
+        } else {
+            const match = fileContent.match(regex);
+            if (match) {
+                replacedContent = fileContent.replace(match[0], replacementText);
+            } else {
+                replacedContent = fileContent;
+            }
+        }
+
+        if (currentIndex < history.length - 1) {
+            history = history.slice(0, currentIndex + 1);
+        }
+        history.push(replacedContent);
+        currentIndex++;
+
+        document.getElementById('output').innerHTML = replacedContent.replace(new RegExp(escapeRegExp(replacementText), flags), '<span class="highlight">$&</span>');
+        updateWordCount();
+    }
+
+    function undo() {
+        if (currentIndex > 0) {
+            currentIndex--;
+            document.getElementById('output').innerHTML = history[currentIndex];
+            updateWordCount();
+        }
+    }
+
+    function redo() {
+        if (currentIndex < history.length - 1) {
+            currentIndex++;
+            document.getElementById('output').innerHTML = history[currentIndex];
+            updateWordCount();
+        }
+    }
+
+    function downloadModifiedFile() {
+        const replacedContent = history[currentIndex];
+        const blob = new Blob([replacedContent], { type: 'text/plain' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'modified_file.txt';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    function updateWordCount() {
+        const originalContent = document.getElementById('fileContent').value;
+        const modifiedContent = history[currentIndex];
+        const originalWordCount = originalContent.split(/\s+/).filter(word => word !== '').length;
+        const modifiedWordCount = modifiedContent.split(/\s+/).filter(word => word !== '').length;
+        document.getElementById('wordCount').innerHTML = `Original Word Count: ${originalWordCount} | Modified Word Count: ${modifiedWordCount}`;
+    }
+
+    function escapeRegExp(string) {
+        return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); // $& means the whole matched string
+    }
+</script>
+</body>
+</html>
