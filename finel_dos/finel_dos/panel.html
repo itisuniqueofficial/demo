@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time Log Control Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #log-container {
+            white-space: pre-wrap; /* Preserve formatting */
+            border: 1px solid #ccc;
+            padding: 10px;
+            height: 200px;
+            overflow-y: scroll;
+            margin-bottom: 20px;
+        }
+        #charts-container {
+            display: flex;
+            justify-content: space-around;
+        }
+        canvas {
+            width: 45%;
+            height: 300px;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Real-Time Log Control Panel</h1>
+    
+    <!-- Log Container -->
+    <div id="log-container">Loading logs...</div>
+
+    <!-- Graphs for Risk Levels, IPs, and HTTP Headers -->
+    <div id="charts-container">
+        <canvas id="riskChart"></canvas>
+        <canvas id="ipChart"></canvas>
+        <canvas id="headerChart"></canvas> <!-- New chart for HTTP headers -->
+    </div>
+
+    <script>
+        // Bar chart data for risk levels, IPs, and HTTP headers
+        let riskData = { High: 0, Medium: 0, Low: 0 };
+        let ipData = {};
+        let headerData = {};
+
+        // Fetch logs and update the graph and text container
+        function fetchLogs() {
+            fetch('fetch_logs.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('log-container').textContent = data.logs.map(log =>
+                        `Timestamp: ${log.timestamp}\nRisk Level: ${log.risk}\nIP: ${log.ip}\n\n` +
+                        Object.entries(log.headers).map(([key, value]) => `${key}: ${value}`).join('\n') + '\n\n'
+                    ).join('');
+
+                    // Reset risk, IP, and header data
+                    riskData = { High: 0, Medium: 0, Low: 0 };
+                    ipData = {};
+                    headerData = {};
+
+                    // Parse the logs to update the risk, IP, and header data
+                    data.logs.forEach(log => {
+                        let risk = log.risk;
+                        let ip = log.ip;
+                        let headers = log.headers;
+
+                        // Update risk level counts
+                        if (riskData[risk] !== undefined) {
+                            riskData[risk]++;
+                        }
+
+                        // Update IP address counts
+                        if (ipData[ip] === undefined) {
+                            ipData[ip] = 1;
+                        } else {
+                            ipData[ip]++;
+                        }
+
+                        // Update header counts
+                        Object.keys(headers).forEach(header => {
+                            if (headerData[header] === undefined) {
+                                headerData[header] = 1;
+                            } else {
+                                headerData[header]++;
+                            }
+                        });
+                    });
+
+                    // Update charts
+                    updateRiskChart();
+                    updateIpChart();
+                    updateHeaderChart();
+                })
+                .catch(error => {
+                    console.error('Error fetching logs:', error);
+                });
+        }
+
+        // Function to update the risk level chart
+        function updateRiskChart() {
+            let riskLabels = Object.keys(riskData);
+            let riskValues = Object.values(riskData);
+
+            riskChart.data.labels = riskLabels;
+            riskChart.data.datasets[0].data = riskValues;
+            riskChart.update();
+        }
+
+        // Function to update the IP address chart
+        function updateIpChart() {
+            let ipLabels = Object.keys(ipData);
+            let ipValues = Object.values(ipData);
+
+            ipChart.data.labels = ipLabels;
+            ipChart.data.datasets[0].data = ipValues;
+            ipChart.update();
+        }
+
+        // Function to update the HTTP headers chart
+        function updateHeaderChart() {
+            let headerLabels = Object.keys(headerData);
+            let headerValues = Object.values(headerData);
+
+            headerChart.data.labels = headerLabels;
+            headerChart.data.datasets[0].data = headerValues;
+            headerChart.update();
+        }
+
+        // Create the risk level chart
+        let riskCtx = document.getElementById('riskChart').getContext('2d');
+        let riskChart = new Chart(riskCtx, {
+            type: 'bar',
+            data: {
+                labels: ['High', 'Medium', 'Low'],
+                datasets: [{
+                    label: 'Risk Levels',
+                    data: [0, 0, 0],
+                    backgroundColor: ['#FF0000', '#FFA500', '#00FF00'],
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Create the IP address chart
+        let ipCtx = document.getElementById('ipChart').getContext('2d');
+        let ipChart = new Chart(ipCtx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'IP Addresses',
+                    data: [],
+                    backgroundColor: '#0000FF',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Create the HTTP headers chart
+        let headerCtx = document.getElementById('headerChart').getContext('2d');
+        let headerChart = new Chart(headerCtx, {
+            type: 'bar',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'HTTP Headers',
+                    data: [],
+                    backgroundColor: '#00FFFF',
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Fetch logs every 5 seconds
+        setInterval(fetchLogs, 5000);
+
+        // Initial fetch
+        fetchLogs();
+    </script>
+</body>
+</html>
